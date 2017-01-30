@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Donkey extends Model
 {
-    //
+    protected $fillable = ['foo'];
 }

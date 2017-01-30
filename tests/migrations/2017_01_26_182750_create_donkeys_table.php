@@ -13,8 +13,8 @@ class CreateDonkeysTable extends Migration
     {
         Schema::create('donkeys', function ($table) {
             $table->increments('id');
-            $table->string('foo');
-            $table->string('bar');
+            $table->string('foo')->nullable();
+            $table->string('bar')->nullable();
             $table->timestamps();
         });
 

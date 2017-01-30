@@ -3,29 +3,52 @@
 namespace JulianoBailao\LaravelEasyApi;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 trait ValidationTrait
 {
     /**
-     * Save a new register.
-     *
-     * @param Request $request
-     *
-     * @return mixed
-     */
-    public function store(Request $request)
-    {
-        $selectFields = method_exists($this, 'selectFields') ? $this->selectFields() : '*';
-        $this->query = $this->getModel()->select($selectFields)->findOrFail($id);
-
-        return response()->json($this->query);
-    }
-
-    /**
      * Implements to customize the validation rules.
-     * @param Request $request
+     *
+     * @param string $method storage or update
+     * @param int $id the id from update record
      *
      * @return array
      */
-    abstract protected function validationRules(Request $request);
+    abstract protected function validationRules($method, $id = null);
+
+    /**
+     * Implements to customize the validation messages.
+     *
+     * @param string $method storage or update
+     * @param int $id the id from update record
+     *
+     * @return array
+     */
+    abstract protected function validationMessages($method, $id = null);
+
+    /**
+     * Validate a Request data
+     *
+     * @param Request $request
+     * @param string  $method
+     * @param string  $id
+     *
+     * @return mixed
+     */
+    protected function validateRequest(Request $request, $method, $id = null)
+    {
+        $validator = Validator::make($request->all(), $this->validationRules($method, $id), $this->validationMessages($method, $id));
+
+        if ($validator->fails()) {
+            $rerrorData = [
+                'error' => true,
+                'messages' => $validator->messages()->all(),
+            ];
+
+            return response()->json($rerrorData, 422);
+        }
+
+        return true;
+    }
 }

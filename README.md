@@ -36,7 +36,27 @@ $ composer require julianobailao/laravel-easy-api
 
 ## How to use
 
-To do
+``` php
+
+use JulianoBailao\LaravelEasyApi\QueryTrait;
+use JulianoBailao\LaravelEasyApi\IndexTrait;
+use JulianoBailao\LaravelEasyApi\ShowTrait;
+use JulianoBailao\LaravelEasyApi\SaveTrait;
+use JulianoBailao\LaravelEasyApi\StoreTrait;
+use JulianoBailao\LaravelEasyApi\UpdateTrait;
+use JulianoBailao\LaravelEasyApi\DeleteTrait;
+
+class ProductController extends Controller
+{
+    use QueryTrait, IndexTrait, ShowTrait, SaveTrait, StoreTrait, UpdateTrait, DeleteTrait;
+
+    // originaly the model name is Product, case need customize this
+    protected $modelName = 'ProductModelName';
+
+    // originaly the model namespace is App\\, case need customize this
+    protected $modelName = 'App\\Product\\Namespace';
+}
+```
 
 ## License
 
