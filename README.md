@@ -26,7 +26,7 @@
 [link-styleci]: https://styleci.io/repos/80361872
 [link-donate]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LDRJCTGY2YXYJ
 
-## Instalação
+## Install
 
 Via Composer
 
@@ -34,27 +34,15 @@ Via Composer
 $ composer require julianobailao/laravel-easy-api
 ```
 
-## Como usar
+## How to use
 
-Sintaxe simples e intuitiva.
-
-``` php
-use Marketplacehub\Skyhub\ApiClient as Skyhub;
-
-$skyhub = new Skyhub($username = 'foo', $token = 'bar', $debug = true);
-
-$response = $skyhub->products()->get(); // GuzzleHttp\Psr7\Response
-$products = json_decode($response->getBody()); // stdClass product data
-$statusCode = $response->getStausCode(); // 200
-```
-
-Por favor, visite a [wiki](https://github.com/julianobailao/laravel-easy-api/wiki) deste projeto para ver a documentação completa.
+To do
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-## Doações
-Se este projeto o ajudou, por favor, considere me fazer uma doação. Qualquer quantia me ajudaria muito.
+## Donate
+Support this project and others, via [PayPal](link-donate).
 
 [![Donate][ico-donate]][link-donate]
