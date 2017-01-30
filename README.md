@@ -1,4 +1,4 @@
-# Skyhub - Api SDK
+# Laravel - Easy Api
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -9,20 +9,20 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Donate][ico-donate]][link-donate]
 
-[ico-version]: https://img.shields.io/packagist/v/marketplacehub/php-skyhub-sdk.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/julianobailao/laravel-easy-api.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/marketplacehub/php-skyhub-sdk/master.svg?style=flat-square
-[ico-scrutinizer]:https://img.shields.io/scrutinizer/coverage/g/marketplacehub/php-skyhub-sdk.svg?style=flat-square
-[ico-code-quality]:https://img.shields.io/scrutinizer/g/marketplacehub/php-skyhub-sdk.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/marketplacehub/php-skyhub-sdk.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/julianobailao/laravel-easy-api/master.svg?style=flat-square
+[ico-scrutinizer]:https://img.shields.io/scrutinizer/coverage/g/julianobailao/laravel-easy-api.svg?style=flat-square
+[ico-code-quality]:https://img.shields.io/scrutinizer/g/julianobailao/laravel-easy-api.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/julianobailao/laravel-easy-api.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/79355495/shield
 [ico-donate]:https://img.shields.io/badge/Donate-PayPal-brightgreen.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/marketplacehub/php-skyhub-sdk
-[link-travis]: https://travis-ci.org/marketplacehub/php-skyhub-sdk
-[link-scrutinizer]: https://scrutinizer-ci.com/g/marketplacehub/php-skyhub-sdk/?branch=master
-[link-code-quality]: https://scrutinizer-ci.com/g/marketplacehub/php-skyhub-sdk/?branch=master
-[link-downloads]: https://packagist.org/packages/marketplacehub/php-skyhub-sdk
+[link-packagist]: https://packagist.org/packages/julianobailao/laravel-easy-api
+[link-travis]: https://travis-ci.org/julianobailao/laravel-easy-api
+[link-scrutinizer]: https://scrutinizer-ci.com/g/julianobailao/laravel-easy-api/?branch=master
+[link-code-quality]: https://scrutinizer-ci.com/g/julianobailao/laravel-easy-api/?branch=master
+[link-downloads]: https://packagist.org/packages/julianobailao/laravel-easy-api
 [link-styleci]: https://styleci.io/repos/79355495
 [link-donate]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LDRJCTGY2YXYJ
 
@@ -31,7 +31,7 @@
 Via Composer
 
 ```bash
-$ composer require marketplacehub/php-skyhub-sdk
+$ composer require julianobailao/laravel-easy-api
 ```
 
 ## Como usar
@@ -48,7 +48,7 @@ $products = json_decode($response->getBody()); // stdClass product data
 $statusCode = $response->getStausCode(); // 200
 ```
 
-Por favor, visite a [wiki](https://github.com/marketplacehub/php-skyhub-sdk/wiki) deste projeto para ver a documentação completa.
+Por favor, visite a [wiki](https://github.com/julianobailao/laravel-easy-api/wiki) deste projeto para ver a documentação completa.
 
 ## License
 
