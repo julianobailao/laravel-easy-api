@@ -9,7 +9,7 @@ trait IndexTrait
     /**
      * Configure the query filters.
      *
-     * @param  string $searchTerm
+     * @param string $searchTerm
      *
      * @return self
      */

@@ -20,7 +20,7 @@ trait QueryTrait
      */
     protected function getModelName()
     {
-        if (! isset($this->modelName) || $this->modelName === null) {
+        if (!isset($this->modelName) || $this->modelName === null) {
             $this->modelName = str_replace('Controller', null, class_basename($this));
         }
 
@@ -34,7 +34,7 @@ trait QueryTrait
      */
     protected function getModel()
     {
-        if (! isset($this->modelNameSpace) || $this->modelNameSpace === null) {
+        if (!isset($this->modelNameSpace) || $this->modelNameSpace === null) {
             $this->modelNameSpace = 'App\\';
         }
 

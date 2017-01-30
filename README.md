@@ -15,7 +15,7 @@
 [ico-scrutinizer]:https://img.shields.io/scrutinizer/coverage/g/julianobailao/laravel-easy-api.svg?style=flat-square
 [ico-code-quality]:https://img.shields.io/scrutinizer/g/julianobailao/laravel-easy-api.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/julianobailao/laravel-easy-api.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/79355495/shield
+[ico-styleci]: https://styleci.io/repos/80361872/shield
 [ico-donate]:https://img.shields.io/badge/Donate-PayPal-brightgreen.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/julianobailao/laravel-easy-api
@@ -23,7 +23,7 @@
 [link-scrutinizer]: https://scrutinizer-ci.com/g/julianobailao/laravel-easy-api/?branch=master
 [link-code-quality]: https://scrutinizer-ci.com/g/julianobailao/laravel-easy-api/?branch=master
 [link-downloads]: https://packagist.org/packages/julianobailao/laravel-easy-api
-[link-styleci]: https://styleci.io/repos/79355495
+[link-styleci]: https://styleci.io/repos/80361872
 [link-donate]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LDRJCTGY2YXYJ
 
 ## Instalação
