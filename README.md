@@ -91,7 +91,7 @@ class DonkeyController extends Controller
 Configure your routes:
 
 ``` php
-Route::resource('donkeys', 'DonkeyController', ['except' => ['index', 'show', 'store']]);
+Route::resource('donkeys', 'DonkeyController', ['except' => ['create', 'edit']]);
 ```
 And it`s done!!! You have a resource controller with the index, show, store, update and destroyn runing for model Donkey, in the /donkeys route.
 
