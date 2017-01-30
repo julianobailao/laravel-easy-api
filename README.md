@@ -95,6 +95,12 @@ Route::resource('donkeys', 'DonkeyController', ['except' => ['create', 'edit']])
 ```
 And it`s done!!! You have a resource controller with the index, show, store, update and destroy methods, runing for model Donkey, in the /donkeys route.
 
+## Todo
+  * Rename the DeleteTrait to DestroyTrait.
+  * Add transformer support.
+  * Remove package dependency.
+  * Add a trait with all traits added to full resource controllers.
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
