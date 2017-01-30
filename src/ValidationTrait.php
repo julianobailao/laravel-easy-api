@@ -11,7 +11,7 @@ trait ValidationTrait
      * Implements to customize the validation rules.
      *
      * @param string $method storage or update
-     * @param int    $id the id from update record
+     * @param int    $id     the id from update record
      *
      * @return array
      */
@@ -21,7 +21,7 @@ trait ValidationTrait
      * Implements to customize the validation messages.
      *
      * @param string $method storage or update
-     * @param int    $id the id from update record
+     * @param int    $id     the id from update record
      *
      * @return array
      */
