@@ -93,7 +93,7 @@ Configure your routes:
 ``` php
 Route::resource('donkeys', 'DonkeyController', ['except' => ['create', 'edit']]);
 ```
-And it`s done!!! You have a resource controller with the index, show, store, update and destroyn runing for model Donkey, in the /donkeys route.
+And it`s done!!! You have a resource controller with the index, show, store, update and destroy methods, runing for model Donkey, in the /donkeys route.
 
 ## License
 
