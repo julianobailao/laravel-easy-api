@@ -1,7 +1,7 @@
 {
     "name": "julianobailao/laravel-easy-api",
     "type": "library",
-    "description": "Skyhub Marketplace - Api Client.",
+    "description": "Laravel Easy Api Helper.",
     "keywords": [
         "juliano bailao",
         "api",
