@@ -11,7 +11,7 @@ trait ValidationTrait
      * Implements to customize the validation rules.
      *
      * @param string $method storage or update
-     * @param int $id the id from update record
+     * @param int    $id the id from update record
      *
      * @return array
      */
@@ -21,14 +21,14 @@ trait ValidationTrait
      * Implements to customize the validation messages.
      *
      * @param string $method storage or update
-     * @param int $id the id from update record
+     * @param int    $id the id from update record
      *
      * @return array
      */
     abstract protected function validationMessages($method, $id = null);
 
     /**
-     * Validate a Request data
+     * Validate a Request data.
      *
      * @param Request $request
      * @param string  $method
@@ -42,7 +42,7 @@ trait ValidationTrait
 
         if ($validator->fails()) {
             $rerrorData = [
-                'error' => true,
+                'error'    => true,
                 'messages' => $validator->messages()->all(),
             ];
 

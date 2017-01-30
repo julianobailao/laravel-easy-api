@@ -2,8 +2,6 @@
 
 namespace JulianoBailao\LaravelEasyApi;
 
-use Illuminate\Http\Request;
-
 trait DeleteTrait
 {
     public function delete($id)
