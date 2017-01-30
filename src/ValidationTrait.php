@@ -38,7 +38,11 @@ trait ValidationTrait
      */
     protected function validateRequest(Request $request, $method, $id = null)
     {
-        $validator = Validator::make($request->all(), $this->validationRules($method, $id), $this->validationMessages($method, $id));
+        $validator = Validator::make(
+            $request->all(),
+            $this->validationRules($method, $id),
+            $this->validationMessages($method, $id)
+        );
 
         if ($validator->fails()) {
             $rerrorData = [
