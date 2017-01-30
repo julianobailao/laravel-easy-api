@@ -36,27 +36,64 @@ $ composer require julianobailao/laravel-easy-api
 
 ## How to use
 
+Make a Model:
 ``` php
 
-use JulianoBailao\LaravelEasyApi\QueryTrait;
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Donkey extends Model
+{
+  //
+}
+```
+
+Then, make a controller, and use the traits of this package. Exists one trait for each method from resource controller equivalent.
+
+``` php
+
+namespace App\Http\Controllers;
+
+// needed for all other traits
+use JulianoBailao\LaravelEasyApi\QueryTrait; 
+
+// the index method from resource controller
 use JulianoBailao\LaravelEasyApi\IndexTrait;
-use JulianoBailao\LaravelEasyApi\ShowTrait;
+
+// the show  method from resource controller
+use JulianoBailao\LaravelEasyApi\ShowTrait; 
+
+// needed from store and update traits
 use JulianoBailao\LaravelEasyApi\SaveTrait;
+
+// the store method from resource controller
 use JulianoBailao\LaravelEasyApi\StoreTrait;
+
+// the update method from resource controller
 use JulianoBailao\LaravelEasyApi\UpdateTrait;
+
+// the delete method from resource controller
 use JulianoBailao\LaravelEasyApi\DeleteTrait;
 
-class ProductController extends Controller
+class DonkeyController extends Controller
 {
     use QueryTrait, IndexTrait, ShowTrait, SaveTrait, StoreTrait, UpdateTrait, DeleteTrait;
 
-    // originaly the model name is Product, case need customize this
-    protected $modelName = 'ProductModelName';
+    // By default the model name is Donkey, because of the controller name, case need to change this:
+    // protected $modelName = 'DonkeyModelName';
 
-    // originaly the model namespace is App\\, case need customize this
-    protected $modelName = 'App\\Product\\Namespace';
+    // By default the model namespace is App\\, case need to change this:
+    // protected $modelName = 'App\\Product\\Namespace';
 }
 ```
+
+Configure your routes:
+
+``` php
+Route::resource('donkeys', 'DonkeyController', ['except' => ['index', 'show', 'store']]);
+```
+And it`s done!!! You have a resource controller with the index, show, store, update and destroyn runing for model Donkey, in the /donkeys route.
 
 ## License
 
