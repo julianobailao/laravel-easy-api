@@ -28,7 +28,7 @@ trait QueryTrait
     }
 
     /**
-     * Gets the model Object
+     * Gets the model Object.
      *
      * @return mixed
      */
