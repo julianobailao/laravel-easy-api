@@ -9,8 +9,8 @@ trait SaveTrait
     /**
      * Override it to transform the store query.
      *
-     * @param  Model   $query
-     * @param  Request $request
+     * @param Model   $query
+     * @param Request $request
      *
      * @return mixed
      */
@@ -22,9 +22,9 @@ trait SaveTrait
     /**
      * Override it to transform the update query.
      *
-     * @param  Model   $query
-     * @param  Request $request
-     * @param  int     $id
+     * @param Model   $query
+     * @param Request $request
+     * @param int     $id
      *
      * @return mixed
      */
@@ -37,7 +37,7 @@ trait SaveTrait
      * Make the default save store/update query.
      *
      * @param Model $query
-     * @param  Request $request
+     * @param Request $request
      * @param int   $id
      *
      * @return mixed
@@ -54,8 +54,8 @@ trait SaveTrait
     /**
      * Override it to transform the store response.
      *
-     * @param  Request $request
-     * @param  string  $method
+     * @param Request $request
+     * @param string  $method
      *
      * @return array
      */
@@ -67,8 +67,8 @@ trait SaveTrait
     /**
      * Override it to transform the update response.
      *
-     * @param  Request $request
-     * @param  string  $method
+     * @param Request $request
+     * @param string  $method
      *
      * @return array
      */
@@ -80,27 +80,27 @@ trait SaveTrait
     /**
      * The store / update response.
      *
-     * @param  array  $data
-     * @param  string $method
-     * @param  int    $id
+     * @param array  $data
+     * @param string $method
+     * @param int    $id
      *
      * @return array
      */
     protected function saveResponse(array $data, $method, $id = null)
     {
         return [
-            'id' => $id ?: $data['id'],
+            'id'     => $id ?: $data['id'],
             'method' => $method,
-            'data' => $data,
+            'data'   => $data,
         ];
     }
 
     /**
      * Save the data in the database from store and update method.
      *
-     * @param  Request $request
-     * @param  string  $method
-     * @param  int     $id
+     * @param Request $request
+     * @param string  $method
+     * @param int     $id
      *
      * @return mixed
      */
@@ -109,7 +109,9 @@ trait SaveTrait
         if (method_exists($this, 'validateRequest')) {
             $validation = $this->validateRequest($request, $method, $id);
 
-            if ($validation !== true) { return $validation; }
+            if ($validation !== true) {
+                return $validation;
+            }
         }
 
         $model = $this->getModel();

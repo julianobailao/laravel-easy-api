@@ -30,8 +30,8 @@ trait IndexTrait
     /**
      * Override it to transform the index query.
      *
-     * @param  Model   $query
-     * @param  Request $request
+     * @param Model   $query
+     * @param Request $request
      *
      * @return Paginator
      */
@@ -43,8 +43,8 @@ trait IndexTrait
     /**
      * Make the index query.
      *
-     * @param  Model   $query
-     * @param  Request $request
+     * @param Model   $query
+     * @param Request $request
      *
      * @return Paginator
      */
@@ -61,7 +61,7 @@ trait IndexTrait
     /**
      * Overide it to transform the index response.
      *
-     * @param  array  $data
+     * @param array  $data
      *
      * @return array
      */
@@ -73,7 +73,7 @@ trait IndexTrait
     /**
      * The index response.
      *
-     * @param  array  $data
+     * @param array  $data
      *
      * @return array
      */
