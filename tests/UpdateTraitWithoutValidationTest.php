@@ -27,6 +27,6 @@ class UpdateTraitWithoutValidationTest extends TestCase
         $json = json_decode($response->content());
 
         $this->assertEquals(200, $response->status());
-        $this->assertEquals('barUpdated', $json->foo);
+        $this->assertEquals('barUpdated', $json->data->foo);
     }
 }

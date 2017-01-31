@@ -5,6 +5,56 @@ namespace JulianoBailao\LaravelEasyApi;
 trait ShowTrait
 {
     /**
+     * Override it to transform the show query.
+     *
+     * @param Model $query
+     * @param int   $id
+     *
+     * @return mixed
+     */
+    protected function transformShowQuery($query, $id)
+    {
+        return $this->showQuery($query, $id);
+    }
+
+    /**
+     * Make the show query.
+     *
+     * @param Model $query
+     * @param int   $id
+     *
+     * @return bool
+     */
+    protected function showQuery($query, $id)
+    {
+        return $query->findOrFail($id);
+    }
+
+    /**
+     * Override it to transform the show response.
+     *
+     * @param bool $query
+     *
+     * @return array
+     */
+    protected function transformShowResponse($response)
+    {
+        return $this->showResponse($response);
+    }
+
+    /**
+     * The show response.
+     *
+     * @param bool $response
+     *
+     * @return array
+     */
+    public function showResponse($response)
+    {
+        return $response;
+    }
+
+    /**
      * Gets a json response with a specific model register.
      *
      * @param int $id
@@ -13,10 +63,9 @@ trait ShowTrait
      */
     public function show($id)
     {
-        $selectFields = method_exists($this, 'selectFields') ? $this->selectFields() : '*';
+        $query = $this->transformShowQuery($this->getModel(), $id);
+        $data = $this->transformShowResponse($query->toArray());
 
-        $this->query = $this->getModel()->select($selectFields)->findOrFail($id);
-
-        return response()->json($this->query);
+        return response()->json($data);
     }
 }

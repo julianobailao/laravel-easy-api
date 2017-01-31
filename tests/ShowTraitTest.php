@@ -7,11 +7,21 @@ use JulianoBailao\LaravelEasyApi\QueryTrait;
 
 class ShowTraitTest extends TestCase
 {
-    use QueryTrait, ShowTrait;
+    use QueryTrait, ShowTrait {
+        transformShowResponse as traitTransfomer;
+    }
 
     protected $modelName = 'Donkey';
 
     protected $modelNameSpace = 'JulianoBailao\LaravelEasyApi\Tests\Stubs\\';
+
+    protected function transformShowResponse($data)
+    {
+        $data = $this->traitTransfomer($data);
+        $data['testTranformer'] = true;
+
+        return $data;
+    }
 
     /**
      * Testing the show method from a resource controller.
@@ -27,5 +37,6 @@ class ShowTraitTest extends TestCase
         $this->assertEquals(1, $json->id);
         $this->assertEquals('bar', $json->foo);
         $this->assertEquals('foo', $json->bar);
+        $this->assertEquals(true, $json->testTranformer);
     }
 }

@@ -11,24 +11,85 @@ trait IndexTrait
      *
      * @param string $searchTerm
      *
-     * @return self
+     * @return mixed
      */
-    protected function filter($searchTerm)
+    protected function filter($query, $searchTerm)
     {
         if ($searchTerm != null) {
-            $this->query->where(function ($query) use ($searchTerm) {
+            $query->where(function ($query) use ($query, $searchTerm) {
                 foreach ($this->getColumns() as $field) {
-                    $this->query->orWhere($field, '=', $searchTerm);
-                    $this->query->orWhere($field, 'like', '%'.$searchTerm.'%');
+                    $query->orWhere($field, '=', $searchTerm);
+                    $query->orWhere($field, 'like', '%'.$searchTerm.'%');
                 }
             });
         }
 
-        return $this;
+        return $query;
     }
 
     /**
-     * Gets a json response with a model paginate pages.
+     * Override it to transform the index query.
+     *
+     * @param  Model   $query
+     * @param  Request $request
+     *
+     * @return Paginator
+     */
+    protected function transformIndexQuery($query, Request $request)
+    {
+        return $this->indexQuery($query, $request);
+    }
+
+    /**
+     * Make the index query.
+     *
+     * @param  Model   $query
+     * @param  Request $request
+     *
+     * @return Paginator
+     */
+    protected function indexQuery($query, Request $request)
+    {
+        $selectFields = method_exists($this, 'selectFields') ? $this->selectFields() : '*';
+        $query = $query->select($selectFields);
+        $query = $this->filter($query, $request->get('filter'));
+
+        $data = $query->paginate($request->get('per_page') ?: 100);
+        return $data;
+    }
+
+    /**
+     * Overide it to transform the index response.
+     *
+     * @param  array  $data
+     *
+     * @return array
+     */
+    protected function transformIndexResponse(array $data)
+    {
+        return $this->indexResponse($data);
+    }
+
+    /**
+     * The index response.
+     *
+     * @param  array  $data
+     *
+     * @return array
+     */
+    protected function indexResponse(array $data)
+    {
+        $response = [];
+        $items = $data['data'];
+        unset($data['data']);
+        $response['metadata'] = $data;
+        $response['items'] = $items;
+
+        return $response;
+    }
+
+    /**
+     * The index method from resource controller.
      *
      * @param Request $request
      *
@@ -36,12 +97,8 @@ trait IndexTrait
      */
     public function index(Request $request)
     {
-        $selectFields = method_exists($this, 'selectFields') ? $this->selectFields() : '*';
-
-        $this->query = $this->getModel()->select($selectFields);
-        $this->filter($request->get('filter'));
-
-        $data = $this->query->paginate($request->get('per_page') ?: 100);
+        $query = $this->transformIndexQuery($this->getModel(), $request);
+        $data = $this->transformIndexResponse($query->toArray());
 
         return response()->json($data);
     }

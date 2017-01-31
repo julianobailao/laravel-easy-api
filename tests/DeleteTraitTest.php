@@ -15,11 +15,12 @@ class DeleteTraitTest extends TestCase
     public function testStoreWithoutError()
     {
         $delete = new DeleteClass();
-        $response = $delete->delete(1);
+        $response = $delete->destroy(1);
         $json = json_decode($response->content());
 
         $this->assertEquals(200, $response->status());
         $this->assertEquals(true, $json->deleted);
+        $this->assertEquals(true, $json->transformedData);
         $this->assertEquals(null, Donkey::find(1));
     }
 }

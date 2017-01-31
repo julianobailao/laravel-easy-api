@@ -14,6 +14,14 @@ class StoreTraitWithoutValidationTest extends TestCase
 
     protected $modelNameSpace = 'JulianoBailao\LaravelEasyApi\Tests\Stubs\\';
 
+    protected function transformStoreResponse($data, $method, $id)
+    {
+        $data = $this->saveResponse($data, $method, $id);
+        $data['data']['transformerTest'] = true;
+
+        return $data;
+    }
+
     /**
      * Testing the store method from a resource controller.
      *
@@ -28,7 +36,8 @@ class StoreTraitWithoutValidationTest extends TestCase
         $json = json_decode($response->content());
 
         $this->assertEquals(200, $response->status());
-        $this->assertEquals('bar', $json->foo);
-        $this->assertEquals(null, $json->bar);
+        $this->assertEquals('bar', $json->data->foo);
+        $this->assertEquals(null, $json->data->bar);
+        $this->assertEquals(true, $json->data->transformerTest);
     }
 }

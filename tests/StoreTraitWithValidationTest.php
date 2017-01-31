@@ -29,10 +29,9 @@ class StoreTraitWithValidationTest extends TestCase
         $json = json_decode($response->content());
 
         $this->assertEquals(200, $response->status());
-        $this->assertEquals('bar', $json->foo);
-        $this->assertEquals(null, $json->bar);
+        $this->assertEquals('bar', $json->data->foo);
+        $this->assertEquals(null, $json->data->bar);
     }
-
 
     /**
      * Testing the store method from a resource controller with validation errors.
