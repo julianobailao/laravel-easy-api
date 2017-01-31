@@ -61,7 +61,7 @@ trait IndexTrait
     /**
      * Overide it to transform the index response.
      *
-     * @param array  $data
+     * @param array $data
      *
      * @return array
      */
@@ -73,7 +73,7 @@ trait IndexTrait
     /**
      * The index response.
      *
-     * @param array  $data
+     * @param array $data
      *
      * @return array
      */

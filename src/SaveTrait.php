@@ -36,9 +36,9 @@ trait SaveTrait
     /**
      * Make the default save store/update query.
      *
-     * @param Model $query
+     * @param Model   $query
      * @param Request $request
-     * @param int   $id
+     * @param int     $id
      *
      * @return mixed
      */
