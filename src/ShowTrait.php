@@ -34,7 +34,7 @@ trait ShowTrait
      * Override it to transform the show response.
      *
      * @param array $data
-     * @param int $id
+     * @param int   $id
      *
      * @return array
      */
@@ -47,7 +47,7 @@ trait ShowTrait
      * The show response.
      *
      * @param array $data
-     * @param int $id
+     * @param int   $id
      *
      * @return array
      */
