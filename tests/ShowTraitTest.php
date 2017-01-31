@@ -15,9 +15,9 @@ class ShowTraitTest extends TestCase
 
     protected $modelNameSpace = 'JulianoBailao\LaravelEasyApi\Tests\Stubs\\';
 
-    protected function transformShowResponse($data)
+    protected function transformShowResponse($data, $id)
     {
-        $data = $this->traitTransfomer($data);
+        $data = $this->traitTransfomer($data, $id);
         $data['testTranformer'] = true;
 
         return $data;
