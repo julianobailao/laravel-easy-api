@@ -34,9 +34,15 @@ Via Composer
 $ composer require julianobailao/laravel-easy-api
 ```
 
-## How to use
+## Documentation
 
-Make a Model:
+Please, see the [wiki](https://github.com/julianobailao/laravel-easy-api/wiki) for the full documentation of this project.
+
+## Basic Usage
+
+### Create a Model:
+Create a model and configure it has you wish.
+
 ``` php
 
 namespace App;
@@ -49,54 +55,32 @@ class Donkey extends Model
 }
 ```
 
-Then, make a controller, and use the traits of this package. Exists one trait for each method from resource controller equivalent.
+### Create a controller
+Create a controller, and use the ResourceTrait of this package. Exists one trait for each method from resource controller equivalent, if you want use a especific methods, and not all of then, read about [Independent Methods](#).
 
 ``` php
 
 namespace App\Http\Controllers;
 
-// needed for all other traits
-use JulianoBailao\LaravelEasyApi\QueryTrait; 
-
-// the index method from resource controller
-use JulianoBailao\LaravelEasyApi\IndexTrait;
-
-// the show  method from resource controller
-use JulianoBailao\LaravelEasyApi\ShowTrait; 
-
-// needed from store and update traits
-use JulianoBailao\LaravelEasyApi\SaveTrait;
-
-// the store method from resource controller
-use JulianoBailao\LaravelEasyApi\StoreTrait;
-
-// the update method from resource controller
-use JulianoBailao\LaravelEasyApi\UpdateTrait;
-
-// the delete method from resource controller
-use JulianoBailao\LaravelEasyApi\DeleteTrait;
+use JulianoBailao\LaravelEasyApi\ResourceTrait;
 
 class DonkeyController extends Controller
 {
-    use QueryTrait, IndexTrait, ShowTrait, SaveTrait, StoreTrait, UpdateTrait, DeleteTrait;
-
-    // By default the model name is Donkey, because of the controller name, case need to change this:
-    // protected $modelName = 'DonkeyModelName';
-
-    // By default the model namespace is App\\, case need to change this:
-    // protected $modelName = 'App\\Product\\Namespace';
+  use ResourceTrait;
 }
 ```
 
-Configure your routes:
+### Route
+Configure your route like a resource controller:
 
 ``` php
 Route::resource('donkeys', 'DonkeyController', ['except' => ['create', 'edit']]);
 ```
-And it`s done!!! You have a resource controller with the index, show, store, update and destroy methods, runing for model Donkey, in the /donkeys route.
 
-## Todo
-  * Add a trait with all traits added to full resource controllers.
+### It's runing!
+You have a resource controller with the index, show, store, update and destroy methods, runing for model Donkey, in the /donkeys route.
+
+Please, see the [wiki](https://github.com/julianobailao/laravel-easy-api/wiki) for the full documentation of this project.
 
 ## License
 

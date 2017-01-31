@@ -7,5 +7,5 @@ namespace JulianoBailao\LaravelEasyApi;
  */
 trait ResourceTrait
 {
-    use QueryTrait, IndexTrait, ShowTrait, SaveTrait, ValidatonTrait, StoreTrait, UpdateTrait, DesroyTrait;
+    use QueryTrait, IndexTrait, ShowTrait, SaveTrait, ValidationTrait, StoreTrait, UpdateTrait, DestroyTrait;
 }

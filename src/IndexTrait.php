@@ -13,10 +13,10 @@ trait IndexTrait
      *
      * @return mixed
      */
-    protected function filter($query, $searchTerm)
+    protected function filter($indexQuery, $searchTerm)
     {
         if ($searchTerm != null) {
-            $query->where(function ($query) use ($query, $searchTerm) {
+            $indexQuery->where(function ($query) use ($searchTerm) {
                 foreach ($this->getColumns() as $field) {
                     $query->orWhere($field, '=', $searchTerm);
                     $query->orWhere($field, 'like', '%'.$searchTerm.'%');
@@ -24,7 +24,7 @@ trait IndexTrait
             });
         }
 
-        return $query;
+        return $indexQuery;
     }
 
     /**

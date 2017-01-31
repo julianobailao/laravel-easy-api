@@ -33,25 +33,27 @@ trait ShowTrait
     /**
      * Override it to transform the show response.
      *
-     * @param bool $query
+     * @param array $data
+     * @param int $id
      *
      * @return array
      */
-    protected function transformShowResponse($response)
+    protected function transformShowResponse(array $data, $id)
     {
-        return $this->showResponse($response);
+        return $this->showResponse($data, $id);
     }
 
     /**
      * The show response.
      *
-     * @param bool $response
+     * @param array $data
+     * @param int $id
      *
      * @return array
      */
-    public function showResponse($response)
+    public function showResponse(array $data, $id)
     {
-        return $response;
+        return $data;
     }
 
     /**
@@ -64,7 +66,7 @@ trait ShowTrait
     public function show($id)
     {
         $query = $this->transformShowQuery($this->getModel(), $id);
-        $data = $this->transformShowResponse($query->toArray());
+        $data = $this->transformShowResponse($query->toArray(), $id);
 
         return response()->json($data);
     }
