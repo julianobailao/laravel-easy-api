@@ -53,8 +53,8 @@ trait IndexTrait
         $selectFields = method_exists($this, 'selectFields') ? $this->selectFields() : '*';
         $query = $query->select($selectFields);
         $query = $this->filter($query, $request->get('filter'));
-
         $data = $query->paginate($request->get('per_page') ?: 100);
+
         return $data;
     }
 
