@@ -26,6 +26,8 @@
 [link-styleci]: https://styleci.io/repos/80361872
 [link-donate]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LDRJCTGY2YXYJ
 
+This package will helps you build as quickly as possible your APIs, using pre-configured traits and resource controllers, [see the wiki for more information](https://github.com/julianobailao/laravel-easy-api/wiki).
+
 ## Install
 
 Via Composer
